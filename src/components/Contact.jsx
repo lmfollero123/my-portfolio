@@ -42,13 +42,42 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
-    // Replace with Formspree/EmailJS endpoint
-    await new Promise((res) => setTimeout(res, 2000));
-    setStatus('success');
-    setTimeout(() => {
-      setStatus('idle');
-      setFormData({ name: '', email: '', service: '', budget: '', message: '' });
-    }, 4000);
+    
+    try {
+      // Using FormSubmit.co for free backend-less email sending
+      const response = await fetch("https://formsubmit.co/ajax/follero.luismiguel.noora@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            _subject: `New Portfolio Message from ${formData.name}`,
+            name: formData.name,
+            email: formData.email,
+            service: formData.service || 'Not specified',
+            budget: formData.budget || 'Not specified',
+            message: formData.message
+        })
+      });
+      
+      if (response.ok) {
+        setStatus('success');
+        setTimeout(() => {
+          setStatus('idle');
+          setFormData({ name: '', email: '', service: '', budget: '', message: '' });
+        }, 4000);
+      } else {
+        console.error("Form submission failed");
+        setStatus('error'); // You can handle error state visually if you want
+        // Reverting to idle so they can try again
+        setTimeout(() => setStatus('idle'), 3000);
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   return (
