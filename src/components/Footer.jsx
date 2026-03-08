@@ -25,14 +25,14 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               {[
-                { icon: Github, href: 'https://github.com/', label: 'GitHub' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
+                { icon: Github, href: 'https://github.com/lmfollero123', label: 'GitHub' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/luis-miguel-follero', label: 'LinkedIn' },
                 { icon: Mail, href: 'mailto:follero.luismiguel.noora@gmail.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
                   href={href}
-                  target={label === 'GitHub' ? '_blank' : '_self'}
+                  target="_blank"
                   rel="noreferrer"
                   whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.9 }}

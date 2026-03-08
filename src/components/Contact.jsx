@@ -122,8 +122,8 @@ export default function Contact() {
               <h4 className="text-white font-semibold mb-4">Connect with me</h4>
               <div className="flex gap-3">
                 {[
-                  { icon: Github, label: 'GitHub', href: 'https://github.com/' },
-                  { icon: Linkedin, label: 'LinkedIn', href: '#' },
+                  { icon: Github, label: 'GitHub', href: 'https://github.com/lmfollero123' },
+                  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/luis-miguel-follero' },
                   { icon: Mail, label: 'Email', href: 'mailto:follero.luismiguel.noora@gmail.com' },
                 ].map(({ icon: Icon, label, href }) => (
                   <motion.a
