@@ -90,7 +90,7 @@ export default function About() {
             <div className="space-y-5 text-slate-300 leading-relaxed text-[17px]">
               <p>
                 I'm a dedicated <span className="text-white font-semibold">full-stack developer</span> and 
-                CS student at <span className="text-indigo-400 font-medium">Bestlink College of the Philippines</span>,
+                BSIT student at <span className="text-indigo-400 font-medium">Bestlink College of the Philippines</span>,
                 with a passion for creating comprehensive, feature-rich web and mobile applications.
                 My expertise spans PHP-based server-side systems to modern React frontends and Flutter mobile apps.
               </p>

@@ -21,7 +21,7 @@ export default function Footer() {
               <span className="font-bold text-lg font-display gradient-text">Luis Miguel</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed mb-4">
-              Freelance Full-Stack Developer &amp; CS student at Bestlink College of the Philippines, building modern web and mobile applications from Tandang Sora, QC.
+              Freelance Full-Stack Developer &amp; BSIT student at Bestlink College of the Philippines, building modern web and mobile applications from Tandang Sora, QC.
             </p>
             <div className="flex items-center gap-3">
               {[

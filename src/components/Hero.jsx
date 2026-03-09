@@ -139,7 +139,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-slate-400 text-lg sm:text-xl max-w-2xl leading-relaxed mb-10"
           >
-            CS student at Bestlink College of the Philippines, building comprehensive, modern web and mobile applications — from AI-powered reservation systems to full-stack HR platforms and Flutter marketplaces.
+            BSIT student at Bestlink College of the Philippines, building comprehensive, modern web and mobile applications — from AI-powered reservation systems to full-stack HR platforms and Flutter marketplaces.
           </motion.p>
 
           {/* CTA Buttons */}
