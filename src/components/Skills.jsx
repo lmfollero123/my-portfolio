@@ -7,11 +7,11 @@ const skillCategories = [
     name: 'Backend',
     color: 'from-indigo-500 to-blue-600',
     skills: [
-      { name: 'PHP 7.4/8+', level: 90 },
-      { name: 'MySQL / PDO', level: 88 },
-      { name: 'REST APIs', level: 85 },
-      { name: 'Firebase (Auth/Firestore)', level: 80 },
-      { name: 'Supabase / PostgreSQL', level: 75 },
+      { name: 'PHP', level: 90 },
+      { name: 'MySQL', level: 88 },
+      { name: 'Laravel', level: 82 },
+      { name: 'Firebase', level: 80 },
+      { name: 'Supabase', level: 75 },
     ],
   },
   {
@@ -29,10 +29,10 @@ const skillCategories = [
     name: 'Mobile',
     color: 'from-cyan-500 to-teal-600',
     skills: [
-      { name: 'Flutter / Dart', level: 80 },
-      { name: 'Firebase FCM', level: 75 },
-      { name: 'Riverpod (State Mgmt)', level: 72 },
-      { name: 'Supabase Flutter', level: 78 },
+      { name: 'Flutter', level: 80 },
+      { name: 'Dart', level: 80 },
+      { name: 'Firebase', level: 75 },
+      { name: 'Supabase', level: 78 },
       { name: 'Cross-Platform Dev', level: 80 },
     ],
   },
@@ -41,18 +41,18 @@ const skillCategories = [
     color: 'from-amber-500 to-orange-600',
     skills: [
       { name: 'Git / GitHub', level: 88 },
-      { name: 'RBAC / Security', level: 85 },
-      { name: 'Chart.js / Analytics', level: 78 },
-      { name: 'AJAX / Fetch API', level: 85 },
-      { name: 'Agile / Scrum', level: 75 },
+      { name: 'VS Code', level: 90 },
+      { name: 'Chart.js', level: 78 },
+      { name: 'Postman', level: 80 },
+      { name: 'Figma', level: 70 },
     ],
   },
 ];
 
 const techBadges = [
-  'PHP', 'MySQL', 'React', 'Flutter', 'Dart', 'Firebase', 'Supabase',
-  'Tailwind CSS', 'Bootstrap 5', 'JavaScript', 'HTML5', 'CSS3',
-  'PDO', 'REST API', 'Chart.js', 'AJAX', 'Git', 'Bcrypt', 'RBAC', 'Scrum',
+  'PHP', 'MySQL', 'Laravel', 'React', 'Flutter', 'Dart',
+  'Firebase', 'Supabase', 'Tailwind CSS', 'Bootstrap',
+  'JavaScript', 'HTML', 'CSS', 'Chart.js', 'Git', 'Figma',
 ];
 
 function SkillBar({ name, level, color, index }) {

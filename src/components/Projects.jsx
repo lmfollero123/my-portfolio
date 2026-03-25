@@ -13,7 +13,7 @@ const projects = [
     title: 'Barangay Culiat Facilities Reservation System',
     subtitle: 'Capstone Project · LGU Web Application',
     category: 'Web App',
-    tags: ['PHP', 'MySQL', 'Tailwind CSS', 'AI/ML', 'REST API'],
+    tags: ['PHP', 'MySQL', 'Tailwind CSS', 'JavaScript', 'HTML'],
     description:
       'An AI-driven web application designed to modernize facility reservation management for Local Government Units (LGU). Residents can book public facilities online while administrators get comprehensive tools for managing reservations, tracking usage, and preventing abuse.',
     highlights: [
@@ -24,7 +24,7 @@ const projects = [
       'Haversine formula distance-based facility recommendations',
       'Comprehensive audit trail with 7-year data retention',
     ],
-    tech: ['PHP 7.4+', 'MySQL 8', 'Tailwind CSS', 'Vanilla JS ES6+', 'PDO', 'Bcrypt 2FA'],
+    tech: ['PHP', 'MySQL', 'Tailwind CSS', 'JavaScript', 'HTML', 'CSS'],
     color: 'from-indigo-500 to-purple-600',
     accentColor: '#6366f1',
     icon: Calendar,
@@ -49,7 +49,7 @@ const projects = [
     title: 'Luz De Luna Hotel HR Management System',
     subtitle: 'Enterprise HR Platform · Hospitality',
     category: 'Web App',
-    tags: ['PHP', 'MySQL', 'Bootstrap 5', 'Chart.js', 'AJAX'],
+    tags: ['PHP', 'MySQL', 'Bootstrap 5', 'Chart.js', 'JavaScript'],
     description:
       'A comprehensive enterprise-grade Human Resource Management System designed specifically for luxury hospitality operations. Covers complete HR lifecycle management from onboarding to payroll to analytics.',
     highlights: [
@@ -60,7 +60,7 @@ const projects = [
       'Employee Self-Service (ESS) portal for personal data management',
       'Analytics dashboard with Chart.js visualization and HR KPIs',
     ],
-    tech: ['PHP 8+', 'MySQL 8', 'Bootstrap 5.3', 'Chart.js', 'AJAX', 'PDO'],
+    tech: ['PHP', 'MySQL', 'Bootstrap 5', 'Chart.js', 'JavaScript', 'CSS'],
     color: 'from-amber-500 to-yellow-600',
     accentColor: '#f59e0b',
     icon: Users,
@@ -104,7 +104,7 @@ const projects = [
       'State management using Flutter Riverpod',
       'Image picker & upload with Supabase storage buckets',
     ],
-    tech: ['Flutter 3', 'Dart', 'Supabase', 'Firebase FCM', 'Riverpod', 'Secure Storage'],
+    tech: ['Flutter', 'Dart', 'Supabase', 'Firebase', 'JavaScript', 'CSS'],
     color: 'from-cyan-500 to-blue-600',
     accentColor: '#06b6d4',
     icon: Smartphone,
@@ -148,7 +148,7 @@ const projects = [
       'Analytics dashboard for counseling activity reporting',
       'Mobile-responsive UI deployed on Firebase Hosting',
     ],
-    tech: ['HTML5', 'CSS3', 'Vanilla JS', 'Firebase Auth', 'Firestore', 'Firebase Storage'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Firebase', 'Supabase'],
     color: 'from-emerald-500 to-teal-600',
     accentColor: '#10b981',
     icon: Brain,

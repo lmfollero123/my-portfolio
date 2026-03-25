@@ -18,7 +18,7 @@ const highlights = [
   {
     icon: Shield,
     title: 'Security First',
-    desc: 'RBAC, CSRF, PDO, DPA Compliance',
+    desc: 'Secure Auth, Role-Based Access, DPA Compliance',
     color: 'from-cyan-500 to-teal-600',
   },
   {
