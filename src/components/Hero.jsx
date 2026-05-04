@@ -25,76 +25,31 @@ function TypingText() {
     } else if (deleting && displayed.length > 0) {
       timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 40);
     } else if (deleting && displayed.length === 0) {
-      setDeleting(false);
-      setIndex((i) => (i + 1) % titles.length);
+      timeout = setTimeout(() => {
+        setDeleting(false);
+        setIndex((i) => (i + 1) % titles.length);
+      }, 0);
     }
     return () => clearTimeout(timeout);
   }, [displayed, deleting, index]);
 
   return (
-    <span className="gradient-text font-bold">
+    <span className="text-slate-900 font-bold">
       {displayed}
-      <span className="cursor-blink text-indigo-400">|</span>
+      <span className="cursor-blink text-blue-400">|</span>
     </span>
   );
 }
 
-// Floating particle
-function Particle({ style }) {
-  return (
-    <motion.div
-      style={style}
-      className="absolute rounded-full opacity-30 pointer-events-none"
-      animate={{
-        y: [0, -30, 0],
-        opacity: [0.2, 0.5, 0.2],
-      }}
-      transition={{
-        duration: Math.random() * 4 + 3,
-        repeat: Infinity,
-        ease: 'easeInOut',
-        delay: Math.random() * 3,
-      }}
-    />
-  );
-}
-
 export default function Hero() {
-  const particles = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    style: {
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      width: `${Math.random() * 6 + 2}px`,
-      height: `${Math.random() * 6 + 2}px`,
-      background: ['#6366f1', '#a855f7', '#06b6d4', '#f59e0b'][Math.floor(Math.random() * 4)],
-    },
-  }));
-
   return (
     <section
       id="home"
       style={{ width: '100%', minHeight: '100vh' }}
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden animated-bg"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-slate-50"
     >
-      {/* Background grid */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            'linear-gradient(#6366f1 1px, transparent 1px), linear-gradient(90deg, #6366f1 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-indigo-600/20 to-purple-600/10 blur-3xl" />
-      <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-cyan-600/15 to-indigo-600/10 blur-3xl" />
-
-      {/* Floating particles */}
-      {particles.map((p) => (
-        <Particle key={p.id} style={p.style} />
-      ))}
+      {/* Subtle vignette */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-slate-50 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ paddingTop: '96px', paddingBottom: '60px' }}>
@@ -104,11 +59,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium mb-8 shadow-sm shadow-slate-900/5"
           >
-            <Sparkles size={14} className="text-yellow-400" />
+            <Sparkles size={14} className="text-amber-300" />
             Available for Freelance Work
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           </motion.div>
 
           {/* Name */}
@@ -116,10 +71,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight mb-4"
+            className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-slate-900 leading-tight mb-4"
           >
             Hi, I'm{' '}
-            <span className="gradient-text">Luis Miguel</span>
+            <span className="text-slate-900">Luis Miguel</span>
           </motion.h1>
 
           {/* Typing title */}
@@ -127,7 +82,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-2xl sm:text-3xl lg:text-4xl text-slate-300 font-medium mb-6 h-14 flex items-center"
+            className="text-2xl sm:text-3xl lg:text-4xl text-slate-700 font-medium mb-6 h-14 flex items-center"
           >
             <TypingText />
           </motion.div>
@@ -137,7 +92,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-slate-400 text-lg sm:text-xl max-w-2xl leading-relaxed mb-10"
+            className="text-slate-600 text-lg sm:text-xl max-w-2xl leading-relaxed mb-10"
           >
             BSIT student at Bestlink College of the Philippines, building comprehensive, modern web and mobile applications — from AI-powered reservation systems to full-stack HR platforms and Flutter marketplaces.
           </motion.p>
@@ -151,18 +106,18 @@ export default function Hero() {
           >
             <motion.a
               href="#projects"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(99,102,241,0.5)' }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl text-white font-semibold text-lg shadow-lg shadow-indigo-500/30 transition-all duration-300"
+              className="group flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 border border-blue-600 rounded-2xl text-white font-semibold text-lg transition-colors duration-200"
             >
               <Terminal size={20} />
               View My Work
             </motion.a>
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-8 py-4 glass border border-white/10 rounded-2xl text-white font-semibold text-lg hover:border-indigo-500/40 hover:bg-white/5 transition-all duration-300"
+              className="flex items-center gap-2 px-8 py-4 bg-white border border-slate-200 rounded-2xl text-slate-900 font-semibold text-lg hover:bg-slate-50 transition-colors duration-200 shadow-sm shadow-slate-900/5"
             >
               <Mail size={20} />
               Contact Me
@@ -186,9 +141,9 @@ export default function Hero() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                whileHover={{ scale: 1.15, y: -3 }}
+                whileHover={{ scale: 1.08, y: -2 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-11 h-11 flex items-center justify-center rounded-xl glass border border-white/10 text-slate-400 hover:text-white hover:border-indigo-500/40 transition-all duration-300"
+                className="w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200 shadow-sm shadow-slate-900/5"
                 aria-label={label}
               >
                 <Icon size={18} />
@@ -201,7 +156,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="grid grid-cols-3 gap-6 sm:gap-12 glass border border-white/5 rounded-2xl px-8 py-6"
+            className="grid grid-cols-3 gap-6 sm:gap-12 bg-white border border-slate-200 rounded-2xl px-8 py-6 shadow-sm shadow-slate-900/5"
           >
             {[
               { label: 'Projects Built', value: '4+' },
@@ -209,8 +164,8 @@ export default function Hero() {
               { label: 'Commits', value: '500+' },
             ].map(({ label, value }) => (
               <div key={label} className="text-center">
-                <div className="font-display font-bold text-3xl gradient-text">{value}</div>
-                <div className="text-slate-500 text-sm mt-1">{label}</div>
+                <div className="font-display font-bold text-3xl text-slate-900">{value}</div>
+                <div className="text-slate-600 text-sm mt-1">{label}</div>
               </div>
             ))}
           </motion.div>
@@ -222,7 +177,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 8, 0] }}
         transition={{ delay: 1.5, duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500"
       >
         <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
         <ArrowDown size={16} />

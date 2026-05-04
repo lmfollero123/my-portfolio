@@ -5,7 +5,7 @@ import { Cpu, Star } from 'lucide-react';
 const skillCategories = [
   {
     name: 'Backend',
-    color: 'from-indigo-500 to-blue-600',
+    color: 'from-blue-600 to-blue-500',
     skills: [
       { name: 'PHP', level: 90 },
       { name: 'MySQL', level: 88 },
@@ -16,7 +16,7 @@ const skillCategories = [
   },
   {
     name: 'Frontend',
-    color: 'from-purple-500 to-pink-600',
+    color: 'from-blue-600 to-blue-500',
     skills: [
       { name: 'HTML5 / CSS3', level: 92 },
       { name: 'JavaScript ES6+', level: 85 },
@@ -27,7 +27,7 @@ const skillCategories = [
   },
   {
     name: 'Mobile',
-    color: 'from-cyan-500 to-teal-600',
+    color: 'from-blue-600 to-blue-500',
     skills: [
       { name: 'Flutter', level: 80 },
       { name: 'Dart', level: 80 },
@@ -38,7 +38,7 @@ const skillCategories = [
   },
   {
     name: 'Tools & Other',
-    color: 'from-amber-500 to-orange-600',
+    color: 'from-blue-600 to-blue-500',
     skills: [
       { name: 'Git / GitHub', level: 88 },
       { name: 'VS Code', level: 90 },
@@ -60,10 +60,10 @@ function SkillBar({ name, level, color, index }) {
   return (
     <div ref={ref} className="mb-4">
       <div className="flex justify-between items-center mb-2">
-        <span className="text-slate-300 text-sm font-medium">{name}</span>
+        <span className="text-slate-800 text-sm font-medium">{name}</span>
         <span className="text-slate-500 text-xs">{level}%</span>
       </div>
-      <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+      <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={inView ? { width: `${level}%` } : {}}
@@ -81,8 +81,8 @@ export default function Skills() {
   return (
     <section id="skills" style={{ width: '100%' }} className="py-24 lg:py-32 w-full relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0d0d1a] to-[#0a0a0f]" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[400px] bg-indigo-900/10 blur-3xl rounded-full" />
+      <div className="absolute inset-0 bg-slate-50" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[400px] bg-blue-100 blur-3xl rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -93,15 +93,15 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cyan-500/20 text-cyan-400 text-sm font-medium mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium mb-6">
             <Cpu size={14} />
             Technical Skills
           </span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-5">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl text-slate-900 mb-5">
             My Tech{' '}
-            <span className="gradient-text">Arsenal</span>
+            <span className="text-slate-900">Arsenal</span>
           </h2>
-          <p className="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-xl max-w-2xl mx-auto leading-relaxed">
             Battle-tested across multiple real-world projects
           </p>
         </motion.div>
@@ -114,12 +114,12 @@ export default function Skills() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: catIndex * 0.1 }}
-              className="glass border border-white/5 rounded-3xl p-7 hover:border-white/10 transition-all duration-300"
+              className="glass rounded-3xl p-7 hover:border-slate-300 transition-all duration-200"
             >
               {/* Category header */}
               <div className="flex items-center gap-3 mb-6">
                 <div className={`w-2 h-8 rounded-full bg-gradient-to-b ${category.color}`} />
-                <h3 className="font-display font-semibold text-lg text-white">{category.name}</h3>
+                <h3 className="font-display font-semibold text-lg text-slate-900">{category.name}</h3>
               </div>
 
               {/* Skill bars */}
@@ -144,9 +144,9 @@ export default function Skills() {
           className="text-center"
         >
           <div className="flex items-center justify-center gap-2 mb-6">
-            <Star size={16} className="text-yellow-400" />
-            <span className="text-slate-400 text-sm font-medium">All Technologies Used</span>
-            <Star size={16} className="text-yellow-400" />
+            <Star size={16} className="text-amber-300" />
+            <span className="text-slate-600 text-sm font-medium">All Technologies Used</span>
+            <Star size={16} className="text-amber-300" />
           </div>
           <div className="flex flex-wrap justify-center gap-3">
             {techBadges.map((tech, i) => (
@@ -155,8 +155,8 @@ export default function Skills() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.5 + i * 0.03 }}
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="px-4 py-2 glass border border-white/8 rounded-xl text-slate-300 text-sm font-medium hover:border-indigo-500/30 hover:text-indigo-300 cursor-default transition-all duration-200"
+                whileHover={{ scale: 1.05, y: -1 }}
+                className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-slate-700 text-sm font-medium hover:border-slate-300 cursor-default transition-all duration-200 shadow-sm shadow-slate-900/5"
               >
                 {tech}
               </motion.span>

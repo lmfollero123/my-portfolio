@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div style={{ width: '100%', overflowX: 'hidden', backgroundColor: '#0a0a0f' }} className="text-white min-h-screen">
+    <div style={{ width: '100%', overflowX: 'hidden' }} className="min-h-screen text-slate-900 bg-slate-50">
       <Navbar />
       <main>
         <Hero />

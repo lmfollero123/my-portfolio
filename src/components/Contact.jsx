@@ -7,10 +7,10 @@ import {
 } from 'lucide-react';
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'follero.luismiguel.noora@gmail.com', href: 'mailto:follero.luismiguel.noora@gmail.com', color: 'from-indigo-500 to-purple-600' },
-  { icon: PhoneCall, label: 'Phone / Mobile', value: '0991-104-4599 / 0956-512-1966', href: 'tel:+639911044599', color: 'from-cyan-500 to-blue-600' },
-  { icon: MapPin, label: 'Location', value: 'Tandang Sora, Quezon City 🇵🇭', href: '#', color: 'from-emerald-500 to-teal-600' },
-  { icon: Clock, label: 'Availability', value: 'Mon – Sat, 9AM – 6PM PHT', href: '#', color: 'from-amber-500 to-orange-600' },
+  { icon: Mail, label: 'Email', value: 'follero.luismiguel.noora@gmail.com', href: 'mailto:follero.luismiguel.noora@gmail.com', color: 'bg-blue-600' },
+  { icon: PhoneCall, label: 'Phone / Mobile', value: '0991-104-4599 / 0956-512-1966', href: 'tel:+639911044599', color: 'bg-slate-800' },
+  { icon: MapPin, label: 'Location', value: 'Tandang Sora, Quezon City 🇵🇭', href: '#', color: 'bg-slate-800' },
+  { icon: Clock, label: 'Availability', value: 'Mon – Sat, 9AM – 6PM PHT', href: '#', color: 'bg-slate-800' },
 ];
 
 const services = [
@@ -83,9 +83,9 @@ export default function Contact() {
   return (
     <section id="contact" style={{ width: '100%' }} className="py-24 lg:py-32 w-full relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[#0a0a0f]" />
-      <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-gradient-to-bl from-indigo-900/15 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-gradient-to-tr from-purple-900/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-slate-50" />
+      <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-blue-100 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-blue-100 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -96,15 +96,15 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/20 text-purple-400 text-sm font-medium mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium mb-6">
             <MessageSquare size={14} />
             Get In Touch
           </span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-5">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl text-slate-900 mb-5">
             Let's Build Something{' '}
-            <span className="gradient-text">Amazing</span>
+            <span className="text-slate-900">Amazing</span>
           </h2>
-          <p className="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-xl max-w-2xl mx-auto leading-relaxed">
             Ready to take your project to the next level? Let's talk about your ideas.
           </p>
         </motion.div>
@@ -128,14 +128,14 @@ export default function Contact() {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.3 + i * 0.1 }}
                   whileHover={{ x: 5 }}
-                  className="flex items-center gap-4 glass border border-white/5 rounded-2xl p-4 hover:border-white/10 transition-all duration-300 group"
+                  className="flex items-center gap-4 glass rounded-2xl p-4 hover:border-slate-300 transition-all duration-200 group"
                 >
-                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                  <div className={`w-11 h-11 rounded-xl ${info.color} flex items-center justify-center flex-shrink-0 shadow-sm shadow-black/20 border border-white/10`}>
                     <Icon size={18} className="text-white" />
                   </div>
                   <div>
                     <div className="text-slate-500 text-xs uppercase tracking-wider">{info.label}</div>
-                    <div className="text-white font-medium text-sm group-hover:text-indigo-300 transition-colors">{info.value}</div>
+                    <div className="text-slate-900 font-medium text-sm group-hover:text-blue-700 transition-colors">{info.value}</div>
                   </div>
                 </motion.a>
               );
@@ -146,9 +146,9 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.7 }}
-              className="glass border border-white/5 rounded-2xl p-5"
+              className="glass rounded-2xl p-5"
             >
-              <h4 className="text-white font-semibold mb-4">Connect with me</h4>
+              <h4 className="text-slate-900 font-semibold mb-4">Connect with me</h4>
               <div className="flex gap-3">
                 {[
                   { icon: Github, label: 'GitHub', href: 'https://github.com/lmfollero123' },
@@ -162,7 +162,7 @@ export default function Contact() {
                     rel="noreferrer"
                     whileHover={{ scale: 1.1, y: -3 }}
                     whileTap={{ scale: 0.9 }}
-                    className="flex-1 flex items-center justify-center gap-2 py-3 glass border border-white/8 rounded-xl text-slate-400 hover:text-white hover:border-indigo-500/30 transition-all duration-200 text-sm"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-white border border-slate-200 rounded-xl text-slate-700 hover:bg-slate-50 transition-colors duration-200 text-sm shadow-sm shadow-slate-900/5"
                     aria-label={label}
                   >
                     <Icon size={16} />
@@ -177,14 +177,14 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.8 }}
-              className="glass border border-white/5 rounded-2xl p-5"
+              className="glass rounded-2xl p-5"
             >
-              <h4 className="text-white font-semibold mb-4">Services I Offer</h4>
+              <h4 className="text-slate-900 font-semibold mb-4">Services I Offer</h4>
               <div className="flex flex-wrap gap-2">
                 {services.map((service) => (
                   <span
                     key={service}
-                    className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/8 text-slate-400 text-xs"
+                    className="px-3 py-1.5 rounded-lg bg-slate-900/[0.03] border border-slate-200 text-slate-700 text-xs"
                   >
                     {service}
                   </span>
@@ -200,8 +200,8 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="lg:col-span-3"
           >
-            <div className="glass border border-white/5 rounded-3xl p-8">
-              <h3 className="font-display font-bold text-2xl text-white mb-6">Send Me a Message</h3>
+            <div className="glass rounded-3xl p-8">
+              <h3 className="font-display font-bold text-2xl text-slate-900 mb-6">Send Me a Message</h3>
 
               {status === 'success' ? (
                 <motion.div
@@ -212,8 +212,8 @@ export default function Contact() {
                   <div className="w-20 h-20 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center mb-5">
                     <CheckCircle size={40} className="text-green-400" />
                   </div>
-                  <h4 className="text-white font-bold text-xl mb-2">Message Sent! 🎉</h4>
-                  <p className="text-slate-400">Thanks! I'll get back to you within 24 hours.</p>
+                  <h4 className="text-slate-900 font-bold text-xl mb-2">Message Sent! 🎉</h4>
+                  <p className="text-slate-600">Thanks! I'll get back to you within 24 hours.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -229,7 +229,7 @@ export default function Contact() {
                         required
                         placeholder="John Doe"
                         id="contact-name"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500/50 focus:bg-white/8 transition-all duration-200"
+                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200"
                       />
                     </div>
                     {/* Email */}
@@ -243,7 +243,7 @@ export default function Contact() {
                         required
                         placeholder="john@example.com"
                         id="contact-email"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500/50 focus:bg-white/8 transition-all duration-200"
+                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200"
                       />
                     </div>
                   </div>
@@ -257,7 +257,7 @@ export default function Contact() {
                         value={formData.service}
                         onChange={handleChange}
                         id="contact-service"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-slate-300 text-sm focus:outline-none focus:border-indigo-500/50 transition-all duration-200 appearance-none"
+                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200 appearance-none"
                       >
                         <option value="" className="bg-[#111118]">Select a service</option>
                         {services.map((s) => (
@@ -273,7 +273,7 @@ export default function Contact() {
                         value={formData.budget}
                         onChange={handleChange}
                         id="contact-budget"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-slate-300 text-sm focus:outline-none focus:border-indigo-500/50 transition-all duration-200 appearance-none"
+                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200 appearance-none"
                       >
                         <option value="" className="bg-[#111118]">Select budget</option>
                         <option value="<5k" className="bg-[#111118]">Under ₱5,000</option>
@@ -295,7 +295,7 @@ export default function Contact() {
                       rows={5}
                       placeholder="Tell me about your project, goals, and timeline..."
                       id="contact-message"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500/50 focus:bg-white/8 transition-all duration-200 resize-none"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200 resize-none"
                     />
                   </div>
 
@@ -305,7 +305,7 @@ export default function Contact() {
                     disabled={status === 'sending'}
                     whileHover={status === 'idle' ? { scale: 1.02 } : {}}
                     whileTap={status === 'idle' ? { scale: 0.98 } : {}}
-                    className="w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl text-white font-semibold text-base shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-3 py-4 bg-blue-600 hover:bg-blue-700 border border-blue-600 rounded-xl text-white font-semibold text-base transition-colors duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
                     id="contact-submit"
                   >
                     {status === 'sending' ? (
@@ -321,7 +321,7 @@ export default function Contact() {
                     )}
                   </motion.button>
 
-                  <p className="text-center text-slate-600 text-xs">
+                  <p className="text-center text-slate-500 text-xs">
                     By submitting, you agree that I may contact you regarding your inquiry.
                   </p>
                 </form>

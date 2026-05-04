@@ -5,13 +5,13 @@
 @theme {
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
-  --color-primary: #6366f1;
-  --color-primary-dark: #4f46e5;
-  --color-secondary: #a855f7;
-  --color-accent: #06b6d4;
-  --color-dark: #0a0a0f;
-  --color-dark-card: #111118;
-  --color-dark-border: #1e1e2e;
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-secondary: #64748b;
+  --color-accent: #22c55e;
+  --color-dark: #0b1220;
+  --color-dark-card: #0f172a;
+  --color-dark-border: #1f2937;
 }
 
 @layer base {
@@ -27,8 +27,8 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #0a0a0f;
-  color: #e2e8f0;
+  background-color: #f8fafc;
+  color: #0f172a;
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -159,4 +159,100 @@ body {
 }
 .hover-underline:hover::after {
   width: 100%;
+}
+
+/* --- Professional theme overrides (keeps content unchanged) --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1220;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.28);
+  color: #ffffff;
+}
+
+.gradient-text {
+  color: #ffffff;
+  -webkit-text-fill-color: currentColor;
+}
+
+.glass {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  backdrop-filter: none;
+}
+
+.glow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.animated-bg {
+  background: #0b1220;
+  animation: none;
+}
+
+.shimmer {
+  animation: none;
+}
+
+.hover-underline::after {
+  background: rgba(59, 130, 246, 0.9);
+}
+
+/* --- Clean light theme (final overrides) --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.7);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.18);
+  color: #0f172a;
+}
+
+.gradient-text {
+  color: #1d4ed8;
+  -webkit-text-fill-color: currentColor;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 1);
+  backdrop-filter: none;
+}
+
+.glow {
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.animated-bg {
+  background: #f8fafc;
+  animation: none;
+}
+
+.shimmer {
+  animation: none;
+}
+
+.hover-underline::after {
+  background: rgba(37, 99, 235, 0.9);
 }

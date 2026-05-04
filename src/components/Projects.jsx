@@ -327,7 +327,7 @@ function ScreenshotSlider({ images, labels, accentColor, onOpenLightbox }) {
 
   if (!images || images.length === 0) {
     return (
-      <div className="relative h-52 flex items-center justify-center bg-white/3 border border-white/5 rounded-2xl">
+      <div className="relative h-52 flex items-center justify-center bg-white/4 border border-white/10 rounded-2xl">
         <div className="text-center text-slate-600">
           <ImageIcon size={32} className="mx-auto mb-2 opacity-40" />
           <p className="text-xs">Screenshots coming soon</p>
@@ -428,7 +428,7 @@ function ProjectCard({ project, index }) {
         initial={{ opacity: 0, y: 60 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: index * 0.15 }}
-        className="group glass border border-white/5 rounded-3xl overflow-hidden hover:border-white/10 transition-all duration-500 hover:-translate-y-1"
+        className="group glass rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-200 hover:-translate-y-1"
       >
         {/* Screenshot Slider at top */}
         <div className="p-4 pb-0">
@@ -440,35 +440,31 @@ function ProjectCard({ project, index }) {
           />
         </div>
 
-        {/* Colorful header strip with stats */}
-        <div className={`relative bg-gradient-to-r ${project.color} mx-4 mt-4 rounded-2xl p-5 overflow-hidden`}>
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px)',
-              backgroundSize: '24px 24px',
-            }}
-          />
-          <div className="relative z-10 flex items-center justify-between">
+        {/* Header strip with stats (clean) */}
+        <div className="relative mx-4 mt-4 rounded-2xl p-5 overflow-hidden bg-slate-900/[0.03] border border-slate-200">
+          <div className="relative z-10 flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                <Icon size={22} className="text-white" />
+              <div
+                className="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center"
+                style={{ boxShadow: `inset 0 0 0 1px ${project.accentColor}22` }}
+              >
+                <Icon size={22} className="text-white" style={{ color: project.accentColor }} />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded-full bg-white/20 text-white/90 text-xs font-semibold">
+                  <span className="px-2 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-semibold">
                     {project.badge}
                   </span>
-                  <span className="text-white/70 text-xs">{project.type}</span>
+                  <span className="text-slate-600 text-xs">{project.type}</span>
                 </div>
-                <div className="text-white/80 text-xs mt-0.5">{project.subtitle}</div>
+                <div className="text-slate-600 text-xs mt-0.5">{project.subtitle}</div>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-2 shrink-0">
               {project.stats.map((stat) => (
-                <div key={stat.label} className="bg-white/15 rounded-xl px-3 py-2 text-center">
-                  <div className="text-white font-bold text-base leading-none">{stat.value}</div>
-                  <div className="text-white/70 text-[10px] mt-0.5">{stat.label}</div>
+                <div key={stat.label} className="bg-white border border-slate-200 rounded-xl px-3 py-2 text-center shadow-sm shadow-slate-900/5">
+                  <div className="text-slate-900 font-bold text-base leading-none">{stat.value}</div>
+                  <div className="text-slate-600 text-[10px] mt-0.5">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -477,11 +473,11 @@ function ProjectCard({ project, index }) {
 
         {/* Card Body */}
         <div className="p-6">
-          <h3 className="font-display font-bold text-xl text-white mb-2 group-hover:text-indigo-300 transition-colors duration-300">
+          <h3 className="font-display font-bold text-xl text-slate-900 mb-2 group-hover:text-blue-700 transition-colors duration-200">
             {project.title}
           </h3>
 
-          <p className="text-slate-400 text-sm leading-relaxed mb-4">
+          <p className="text-slate-600 text-sm leading-relaxed mb-4">
             {project.description}
           </p>
 
@@ -490,7 +486,7 @@ function ProjectCard({ project, index }) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/8 text-slate-300 text-xs font-medium hover:border-indigo-500/30 hover:text-indigo-300 transition-all duration-200"
+                className="px-2.5 py-1 rounded-lg bg-slate-900/[0.03] border border-slate-200 text-slate-700 text-xs font-medium hover:border-slate-300 transition-all duration-200"
               >
                 {tag}
               </span>
@@ -513,9 +509,9 @@ function ProjectCard({ project, index }) {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
-                    className="flex items-start gap-2 text-sm text-slate-400"
+                    className="flex items-start gap-2 text-sm text-slate-700"
                   >
-                    <ChevronRight size={14} className="text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <ChevronRight size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
                     {hl}
                   </motion.li>
                 ))}
@@ -527,7 +523,7 @@ function ProjectCard({ project, index }) {
           <div className="flex items-center justify-between pt-4 border-t border-white/5">
             <button
               onClick={() => setExpanded(!expanded)}
-              className="text-indigo-400 text-sm font-medium hover:text-indigo-300 transition-colors duration-200 flex items-center gap-1"
+              className="text-blue-700 text-sm font-medium hover:text-blue-800 transition-colors duration-200 flex items-center gap-1"
             >
               {expanded ? 'Show Less' : 'View Features'}
               <motion.span animate={{ rotate: expanded ? 90 : 0 }} transition={{ duration: 0.2 }}>
@@ -539,9 +535,9 @@ function ProjectCard({ project, index }) {
               {project.screenshots.length > 0 && (
                 <motion.button
                   onClick={() => setLightboxIndex(0)}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-1.5 px-3 py-2 glass border border-white/10 rounded-xl text-slate-300 text-sm hover:text-white hover:border-white/20 transition-all duration-200"
+                  className="flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200 rounded-xl text-slate-700 text-sm hover:bg-slate-50 transition-colors duration-200 shadow-sm shadow-slate-900/5"
                 >
                   <ZoomIn size={13} />
                   Gallery
@@ -549,9 +545,9 @@ function ProjectCard({ project, index }) {
               )}
               <motion.a
                 href="#contact"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl text-white text-sm font-medium shadow-md shadow-indigo-500/20"
+                className="flex items-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 border border-blue-600 rounded-xl text-white text-sm font-medium transition-colors"
               >
                 <Globe size={13} />
                 Inquire
@@ -581,8 +577,8 @@ export default function Projects() {
   return (
     <section id="projects" style={{ width: '100%' }} className="py-24 lg:py-32 w-full relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[#0a0a0f]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-indigo-900/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-slate-50" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-100 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -593,15 +589,15 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium mb-6">
             <Briefcase size={14} />
             Portfolio
           </span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-5">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl text-slate-900 mb-5">
             Projects I've{' '}
-            <span className="gradient-text">Built</span>
+            <span className="text-slate-900">Built</span>
           </h2>
-          <p className="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-xl max-w-2xl mx-auto leading-relaxed">
             Real-world applications spanning web systems, enterprise platforms, and cross-platform mobile apps
           </p>
         </motion.div>
@@ -623,9 +619,9 @@ export default function Projects() {
           <p className="text-slate-500 mb-4">Have a project in mind?</p>
           <motion.a
             href="#contact"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl text-white font-semibold shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 border border-blue-500/40 rounded-2xl text-white font-semibold transition-colors duration-200"
           >
             Let's Build Something Together
             <ChevronRight size={18} />
